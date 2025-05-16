@@ -1,0 +1,170 @@
+<html>
+  <head>
+    <title>Recipes</title>
+    <link rel="stylesheet" href="Styling.css" />
+    <script src="Recipes.js" defer></script>
+  </head>
+  <body>
+    <h1>Recipes</h1>
+
+    <!-- Navigation Section -->
+    <nav id="main-nav">
+      <ul>
+        <li><a href="HomePage.html">Home</a></li>
+        <li><a href="Recipes.html">Recipes</a></li>
+        <li><a href="AboutPage.html">About</a></li>
+        <li><a href="HelpPage.html">Help</a></li>
+      </ul>
+    </nav>
+
+    <div class="sub-section">
+      <form onsubmit="filterRecipes(); return false;">
+        <h3>Narrow down your recipe search!</h3>
+        <label
+          ><b
+            >Do you have any dietary preferences? (you can choose multiple!):</b
+          ></label
+        ><br />
+        <div id="diets">
+          <label for="glutenFree">Gluten Free</label>
+          <input
+            type="checkbox"
+            id="glutenFree"
+            name="diet"
+            value="gluten free"
+          />
+          <br />
+          <label for="ketogenic">Ketogenic</label>
+          <input type="checkbox" id="ketogenic" name="diet" value="ketogenic" />
+          <br />
+          <label for="vegeterian">Vegeterian</label>
+          <input
+            type="checkbox"
+            id="vegeterian"
+            name="diet"
+            value="vegeterian"
+          />
+          <br />
+          <label for="vegan">Vegan</label>
+          <input type="checkbox" id="vegan" name="diet" value="vegan" />
+          <br />
+          <label for="pescetarian">Pescetarian</label>
+          <input
+            type="checkbox"
+            id="pescetarian"
+            name="diet"
+            value="pescetarian"
+          />
+          <br />
+          <label for="paleo">Paleo</label>
+          <input type="checkbox" id="paleo" name="diet" value="paleo" />
+          <br />
+          <label for="primal">Primal</label>
+          <input type="checkbox" id="primal" name="diet" value="primal" />
+          <br />
+        </div>
+        <br />
+
+        <div id="intolerances">
+          <label><b>Do you have any allergies or intolerances?: </b></label
+          ><br />
+          <label for="gluten">Gluten</label>
+          <input
+            type="checkbox"
+            id="gluten"
+            name="intolerance"
+            value="gluten"
+          />
+          <label for="dairy">Dairy</label>
+          <input type="checkbox" id="dairy" name="intolerance" value="dairy" />
+          <label for="egg">Egg</label>
+          <input type="checkbox" id="egg" name="intolerance" value="egg" />
+          <label for="grain">Grain</label>
+          <input type="checkbox" id="grain" name="intolerance" value="grain" />
+          <br />
+          <label for="peanut">Peanut</label>
+          <input
+            type="checkbox"
+            id="peanut"
+            name="intolerance"
+            value="peanut"
+          />
+          <label for="seafood">Seafood</label>
+          <input
+            type="checkbox"
+            id="seafood"
+            name="intolerance"
+            value="seafood"
+          />
+          <label for="sesame">Sesame</label>
+          <input
+            type="checkbox"
+            id="sesame"
+            name="intolerance"
+            value="sesame"
+          />
+          <label for="shellfish">Shellfish</label>
+          <input
+            type="checkbox"
+            id="shellfish"
+            name="intolerance"
+            value="shellfish"
+          />
+          <br />
+          <label for="soy">Soy</label>
+          <input type="checkbox" id="soy" name="intolerance" value="soy" />
+          <label for="wheat">Wheat</label>
+          <input type="checkbox" id="wheat" name="intolerance" value="wheat" />
+
+          <br />
+        </div>
+        <br />
+
+        <label for="cuisines"><b>Finally, choose a cuisine:</b></label>
+        <select name="cuisines" id="cuisines">
+          <option hidden="">-- Select Option --</option>
+          <option value="african">African</option>
+          <option value="asian">Asian</option>
+          <option value="american">American</option>
+          <option value="caribbean">Caribbean</option>
+          <option value="chinese">Chinese</option>
+          <option value="greek">Greek</option>
+          <option value="indian">Indian</option>
+          <option value="italian">Italian</option>
+          <option value="japanese">Japanese</option>
+          <option value="korean">Korean</option>
+          <option value="latin american">Latin American</option>
+          <option value="mediterranean">Mediterranean</option>
+          <option value="mexican">Mexican</option>
+          <option value="southern">Southern</option>
+          <option value="spanish">Spanish</option>
+          <option value="thai">Thai</option>
+          <option value="vietnamese">Vietnamese</option></select
+        ><br />
+        <br />
+
+        <input type="submit" />
+      </form>
+    </div>
+
+    <div id="recipeResults" style="display: none;"></div>
+
+    <aside id="lookUp">
+      <h1>Look up a recipe ID to see more details!</h1>
+      <form onsubmit="lookupRecipe(); return false;">
+        <label for="search">Enter a recipe ID: </label>
+        <input type="text" id="search" />
+        <input type="submit" />
+      </form>
+    </aside>
+
+    <div id="container" style="display: none;"></div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <p><a href="HomePage.html">Home</a> | <a href="ContactPage.html">Contact</a></p>
+
+    </footer>
+    
+  </body>
+</html>

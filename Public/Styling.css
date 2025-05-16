@@ -1,0 +1,82 @@
+body{
+    background-color: rgb(200, 220, 237);
+}
+
+#main-nav {
+    background-color: rgb(84, 145, 230);
+    text-align: center;
+}
+
+#main-nav li {
+    display: inline-block;
+    position: relative;
+}
+
+#main-nav li:hover {
+    background-color: rgb(241, 235, 201);
+}
+
+#main-nav ul li {
+    list-style-type: none;
+    text-align: center;
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: black;   
+}
+
+.sub-section {
+    float: left;
+    margin: 0;
+    width: 50%;
+    color: black;
+    padding: 5px;
+    margin: 5px;
+    background-color: rgb(241, 235, 201);
+    width: 50%;
+    margin-left: 15px;
+}
+
+#lookUp {
+    text-align: center;
+    background-color: rgb(241, 235, 201);
+    float: right;
+    width: 40%;
+    margin-right: 15px;
+    margin-top: 20px;
+    border: 2px solid black;
+}
+
+#recipeResults {
+    float: left;
+    margin: 0;
+    width: 50%;
+    color: black;
+    padding: 5px;
+    margin: 5px;
+    background-color: rgb(94, 209, 247);
+    width: 50%;
+    margin-left: 15px;
+}
+
+#container {
+    text-align: center;
+    background-color: rgb(94, 209, 247);
+    float: right;
+    width: 40%;
+    margin-right: 15px;
+    margin-top: 20px;
+    border: 2px solid black;
+}
+
+#footer {
+    text-align: center;
+    color: white;
+    background-color: rgb(84, 145, 230);
+    margin-top: 10px;
+    padding: 5px;
+    font-family:'verdana';
+    clear: both;
+  }
