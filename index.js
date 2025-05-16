@@ -22,12 +22,6 @@ app.get('/randomData', async (req, res) => {
   res.json(data);
 });
 
-app.get('/randomData', async (req, res) => {
-  const apiKey = process.env.API_KEY;
-  const response = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${apiKey}`);
-  const data = await response.json();
-  res.json(data);
-});
 
 app.get('/home', async (req, res) => {
   res.sendFile('inst377-FinalProject-melanievel/Public/homePage.html', { root: __dirname });
