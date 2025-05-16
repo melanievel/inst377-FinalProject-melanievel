@@ -3,8 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 const express = require('express');
 const dotenv = require('dotenv');
 dotenv.config();
-const fetch = require('node-fetch');
-//const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 
 
 
@@ -25,8 +24,32 @@ app.get('/data', async (req, res) => {
   res.json(data);
 });
 
+app.get('/home', async (req, res) => {
+  res.sendFile('inst377-FinalProject-melanievel/Public/homePage.html', { root: __dirname });
+});
+
+app.get('/about', async (req, res) => {
+  res.sendFile('inst377-FinalProject-melanievel/Public/aboutPage.html', { root: __dirname });
+});
+
+app.get('/contact', async (req, res) => {
+  res.sendFile('inst377-FinalProject-melanievel/Public/ContactPage.html', { root: __dirname });
+});
+
+app.get('/help', async (req, res) => {
+  res.sendFile('inst377-FinalProject-melanievel/Public/helpPage.html', { root: __dirname });
+});
+
+app.get('/random', async (req, res) => {
+  res.sendFile('inst377-FinalProject-melanievel/Public/randomRecipe.html', { root: __dirname });
+});
+
+app.get('/recipes', async (req, res) => {
+  res.sendFile('inst377-FinalProject-melanievel/Public/recipesPage.html', { root: __dirname });
+});
+
 app.get('/', (req, res) => {
-  res.sendFile('public/ContactPage.html', { root: __dirname });
+  res.sendFile('inst377-FinalProject-melanievel/Public/ContactPage.html', { root: __dirname });
 });
 
 app.get('/contact', async (req, res) => {

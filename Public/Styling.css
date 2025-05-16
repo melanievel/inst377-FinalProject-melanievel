@@ -79,4 +79,9 @@ a {
     padding: 5px;
     font-family:'verdana';
     clear: both;
-  }
+}
+
+#myslider img {
+    width: 500px;
+    height: 400px;
+}

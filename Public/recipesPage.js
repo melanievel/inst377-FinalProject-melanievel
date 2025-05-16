@@ -23,7 +23,7 @@ async function filterRecipes() {
   
 
  fetch(
-    `https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&diet=${checkedDiets}&intolerances=${checkedIntolerances}&apiKey=${process.env.apiKey}`
+    `https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&diet=${checkedDiets}&intolerances=${checkedIntolerances}&apiKey=376ec4f30d804001815a9949ee0d8cff`
   )
     .then((result) => result.json())
     .then((data) => {
@@ -40,11 +40,12 @@ async function filterRecipes() {
         const img = document.createElement("img");
         img.src = recipe["image"];
         const space = document.createElement('br');
+        
         items.appendChild(title);
         items.appendChild(id);
         items.appendChild(img);
         list.appendChild(items);
-        allRecipes.appendChild(list);  
+        allRecipes.appendChild(list); 
         allRecipes.style.display = "block";
       });
     });
@@ -57,7 +58,7 @@ function lookupRecipe(){
   const id = document.getElementById("search").value;
   console.log(id);
 
-  fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=${process.env.apiKey}`)
+  fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=376ec4f30d804001815a9949ee0d8cff`)
   .then((result) => result.json())
   .then((resultJson) => {
     console.log(resultJson);
@@ -85,6 +86,44 @@ function lookupRecipe(){
     //}
     });  
 }
+
+function loadPage(){
+  const onButton = document.getElementById("audioOn");
+    onButton.addEventListener("click", function () {
+      AudioCommands();
+    });
+
+    const offButton = document.getElementById("audioOff");
+    offButton.addEventListener("click", function () {
+      turnOffLibrary();
+    });
+  
+}
+
+function AudioCommands() {
+  if (annyang) {
+    const commands = {
+      "change the color to :color": function (color) {
+        document.body.style.background = color;
+      },
+      "navigate to :page": function (page) {
+        window.location.href = page + "Page.html";
+      },
+    };
+
+    annyang.addCommands(commands);
+
+    annyang.start();
+  }
+}
+
+function turnOffLibrary() {
+  if (annyang) {
+    annyang.abort();
+  }
+}
+
+window.onload = loadPage();
 
 
 

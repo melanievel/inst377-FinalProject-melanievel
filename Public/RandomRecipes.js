@@ -1,10 +1,12 @@
 function getRandomRecipe(){
+    loadPage();
     const img= document.getElementById("recipeimg");
     const title= document.getElementById("recipeTitle");
     const description= document.getElementById("description");
     const instructions= document.getElementById("instructions");
 
-    fetch('/data')
+    fetch("https://api.spoonacular.com/recipes/random?apiKey=376ec4f30d804001815a9949ee0d8cff")
+    //fetch('/data')
     .then((result) => result.json())
     .then((data) => {
         const recipes = data.recipes;
@@ -16,8 +18,43 @@ function getRandomRecipe(){
             instructions.innerHTML = recipe["instructions"];
         });
     });
+   
+}
 
+function loadPage(){
+    const onButton = document.getElementById("audioOn");
+      onButton.addEventListener("click", function () {
+        AudioCommands();
+      });
+
+      const offButton = document.getElementById("audioOff");
+      offButton.addEventListener("click", function () {
+        turnOffLibrary();
+      });
     
+}
+
+function AudioCommands() {
+    if (annyang) {
+      const commands = {
+        "change the color to :color": function (color) {
+          document.body.style.background = color;
+        },
+        "navigate to :page": function (page) {
+          window.location.href = page + "Page.html";
+        },
+      };
+  
+      annyang.addCommands(commands);
+  
+      annyang.start();
+    }
+}
+
+function turnOffLibrary() {
+    if (annyang) {
+      annyang.abort();
+    }
 }
 
     
