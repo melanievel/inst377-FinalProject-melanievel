@@ -5,19 +5,24 @@ const dotenv = require('dotenv');
 dotenv.config();
 const bodyParser = require('body-parser');
 
-
-
 const app = express();
 const port = 3000;
-//app.use(bodyParser.json());
+app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
-//const apiKey = process.env.API_KEY;
+const apiKey = process.env.API_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-app.get('/data', async (req, res) => {
+app.get('/randomData', async (req, res) => {
+  const apiKey = process.env.API_KEY;
+  const response = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${apiKey}`);
+  const data = await response.json();
+  res.json(data);
+});
+
+app.get('/randomData', async (req, res) => {
   const apiKey = process.env.API_KEY;
   const response = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${apiKey}`);
   const data = await response.json();

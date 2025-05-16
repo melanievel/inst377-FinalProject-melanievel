@@ -85,3 +85,14 @@ a {
     width: 500px;
     height: 400px;
 }
+
+.audioInstructions {
+    text-align: center;
+    background-color: rgb(241, 235, 201);
+    float: right;
+    width: 40%;
+    margin-right: 15px;
+    margin-top: 20px;
+    border: 2px solid black;
+
+}
