@@ -22,9 +22,9 @@ async function filterRecipes() {
   console.log(cuisine);
   
 
- fetch(
-    `https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&diet=${checkedDiets}&intolerances=${checkedIntolerances}&apiKey=${process.env.API_KEY}` // HIDE apiKey before submission
-  )
+ //fetch(`https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&diet=${checkedDiets}&intolerances=${checkedIntolerances}&apiKey=${process.env.API_KEY}` // HIDE apiKey before submission
+  //)
+   await fetch('http://localhost:3000/data')
     .then((result) => result.json())
     .then((data) => {
       console.log(data);
@@ -52,21 +52,20 @@ async function filterRecipes() {
 }
 
 
-function lookupRecipe(){
+async function lookupRecipe(){
   let paragraph = document.getElementById("container");
   paragraph.innerHTML = "";
   const id = document.getElementById("search").value;
   console.log(id);
 
-  fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=${process.env.API_KEY}`) // HIDE apiKey before submission
-  .then((result) => result.json())
-  .then((resultJson) => {
+  //fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=${process.env.API_KEY}`) // HIDE apiKey before submission
+   await fetch('http://localhost:3000/search')
+    .then((result) => result.json())
+    .then((resultJson) => {
     console.log(resultJson);
       
     //for (var key in resultJson) {
       const image = document.createElement("img");
-      //image.src = value["image"];
-      //paragraph.appendChild(image);
       const recipeTitle = document.createElement("h2");
       recipeTitle.innerHTML = "Title: " + resultJson["title"];
       paragraph.appendChild(recipeTitle);

@@ -12,12 +12,30 @@ app.use(express.static(__dirname + '/public'));
 
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
-const apiKey = process.env.API_KEY;
+//const apiKey = process.env.API_KEY;
 const supabase = supabaseClient.createClient(supabaseUrl, supabaseKey);
 
 app.get('/randomData', async (req, res) => {
   const apiKey = process.env.API_KEY;
   const response = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${apiKey}`);
+  const data = await response.json();
+  res.json(data);
+});
+
+app.get('/data', async (req, res) => {
+  const apiKey = process.env.API_KEY;
+  const {cuisine} = req.body.cuisine;
+  const {checkedDiets} = req.body.checkedDiets;
+  const {checkedIntolerances} = req.body.checkedIntolerances;
+  const response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&diet=${checkedDiets}&intolerances=${checkedIntolerances}&apiKey=${apiKey}`);
+  const data = await response.json();
+  res.json(data);
+});
+
+app.get('/search', async (req, res) => {
+  const apiKey = process.env.API_KEY;
+  const {id} = req.body.id;
+  const response = await fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=${apiKey}`);
   const data = await response.json();
   res.json(data);
 });
