@@ -6,7 +6,7 @@ function getRandomRecipe(){
     const instructions= document.getElementById("instructions");
 
     //fetch("https://api.spoonacular.com/recipes/random?apiKey=376ec4f30d804001815a9949ee0d8cff") //REMOVE before final submission
-    fetch('/data')
+    fetch('http://localhost:3000/randomData')
     .then((result) => result.json())
     .then((data) => {
         const recipes = data.recipes;

@@ -23,7 +23,7 @@ async function filterRecipes() {
   
 
  fetch(
-    `https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&diet=${checkedDiets}&intolerances=${checkedIntolerances}&apiKey=376ec4f30d804001815a9949ee0d8cff` // HIDE apiKey before submission
+    `https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&diet=${checkedDiets}&intolerances=${checkedIntolerances}&apiKey=${process.env.API_KEY}` // HIDE apiKey before submission
   )
     .then((result) => result.json())
     .then((data) => {
@@ -58,7 +58,7 @@ function lookupRecipe(){
   const id = document.getElementById("search").value;
   console.log(id);
 
-  fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=376ec4f30d804001815a9949ee0d8cff`) // HIDE apiKey before submission
+  fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=${process.env.API_KEY}`) // HIDE apiKey before submission
   .then((result) => result.json())
   .then((resultJson) => {
     console.log(resultJson);
