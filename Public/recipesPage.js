@@ -22,9 +22,19 @@ async function filterRecipes() {
   console.log(cuisine);
   
 
- //fetch(`https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&diet=${checkedDiets}&intolerances=${checkedIntolerances}&apiKey=${process.env.API_KEY}` // HIDE apiKey before submission
+ //fetch(`https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&diet=${checkedDiets}&intolerances=${checkedIntolerances}&apiKey=376ec4f30d804001815a9949ee0d8cff` // HIDE apiKey before submission
   //)
-   await fetch('http://localhost:3000/data')
+   fetch('http://localhost:3000/data', {
+    method: 'POST',
+    // body: JSON.stringify({
+      cuisine: cuisine,
+      checkedDiets: checkedDiets,
+      checkedIntolerances: checkedIntolerances,
+
+    // })
+
+   })
+   
     .then((result) => result.json())
     .then((data) => {
       console.log(data);
@@ -54,12 +64,13 @@ async function filterRecipes() {
 
 async function lookupRecipe(){
   let paragraph = document.getElementById("container");
+  let priceImg = document.getElementById('pricePic');
   paragraph.innerHTML = "";
   const id = document.getElementById("search").value;
   console.log(id);
 
-  //fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=${process.env.API_KEY}`) // HIDE apiKey before submission
-   await fetch('http://localhost:3000/search')
+  //fetch(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=376ec4f30d804001815a9949ee0d8cff`) // HIDE apiKey before submission
+  await fetch('http://localhost:3000/search')
     .then((result) => result.json())
     .then((resultJson) => {
     console.log(resultJson);
@@ -74,16 +85,24 @@ async function lookupRecipe(){
       url.innerHTML = "Link: " + resultJson["spoonacularSourceUrl"];
       paragraph.appendChild(url);
       const priceVar = resultJson["pricePerServing"].value;
-      const price = priceVar/100;
-      descriptions.innerHTML = "Time: " + resultJson["readyInMinutes"] + ",  Servings: " + resultJson["servings"] + ", Price: " + price;
+      const total = priceVar/100;
+      descriptions.innerHTML = "Time: " + resultJson["readyInMinutes"] + ",  Servings: " + resultJson["servings"];
       paragraph.appendChild(descriptions);
       const allInstructions = document.createElement("p");
       allInstructions.innerHTML = resultJson["instructions"]; 
       paragraph.appendChild(allInstructions);
-    
+      fetch(`https://api.spoonacular.com/recipes/${id}/priceBreakdownWidget.json?apiKey=376ec4f30d804001815a9949ee0d8cff`)
+      .then((result) => result.json())
+      .then((resultJson) => {
+        const price = document.createElement('h3');
+        price.innerHTML= "Total cost per serving $" + resultJson["totalCostPerServing"];
+        paragraph.appendChild(price);
+      });
       paragraph.style.display = "block";
-    //}
-    });  
+    });
+    
+    
+
 }
 
 function loadPage(){

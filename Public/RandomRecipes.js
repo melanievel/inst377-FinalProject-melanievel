@@ -5,16 +5,16 @@ function getRandomRecipe(){
     const description= document.getElementById("description");
     const instructions= document.getElementById("instructions");
 
-    //fetch("https://api.spoonacular.com/recipes/random?apiKey=376ec4f30d804001815a9949ee0d8cff") //REMOVE before final submission
     fetch('http://localhost:3000/randomData')
     .then((result) => result.json())
     .then((data) => {
         const recipes = data.recipes;
         recipes.forEach((recipe) => {
             //console.log(recipe);
+            var price = parseFloat(recipe["pricePerServing"])/100;
             img.src = recipe["image"];
             title.innerHTML = recipe["title"];
-            description.innerHTML = "Time: " + recipe["readyInMinutes"] + ",  Servings: " + recipe["servings"] + ",  Cuisines: " + recipe["cuisines"] + ",  Diets: " + recipe["diets"] + ", Price per serving: $" + recipe["pricePerServing"];
+            description.innerHTML = "Time: " + recipe["readyInMinutes"] + ",  Servings: " + recipe["servings"] + ",  Cuisines: " + recipe["cuisines"] + ",  Diets: " + recipe["diets"];
             instructions.innerHTML = recipe["instructions"];
         });
     });
