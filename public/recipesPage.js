@@ -23,44 +23,42 @@ async function filterRecipes() {
   
 
  //fetch(`https://api.spoonacular.com/recipes/complexSearch?cuisine=${cuisine}&diet=${checkedDiets}&intolerances=${checkedIntolerances}&apiKey=376ec4f30d804001815a9949ee0d8cff` // HIDE apiKey before submission
-  //)
-   fetch('http://localhost:3000/data', {
-    method: 'POST',
-    // body: JSON.stringify({
-      cuisine: cuisine,
-      checkedDiets: checkedDiets,
-      checkedIntolerances: checkedIntolerances,
 
-    // })
-
-   })
-   
-    .then((result) => result.json())
-    .then((data) => {
-      console.log(data);
-       const results = data.results;
-       const allRecipes = document.getElementById('recipeResults');
-       results.forEach((recipe) => {
-        const list = document.createElement('ul');
-        const items = document.createElement('li');
-        const title = document.createElement("h2");
-        title.innerHTML = recipe["title"];
-        const id = document.createElement("h3");
-        id.innerHTML= recipe["id"];
-        const img = document.createElement("img");
-        img.src = recipe["image"];
-        const space = document.createElement('br');
-        
-        items.appendChild(title);
-        items.appendChild(id);
-        items.appendChild(img);
-        list.appendChild(items);
-        allRecipes.appendChild(list); 
-        allRecipes.style.display = "block";
-      });
-    });
+fetch('http://localhost:3000/data', {
+  method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify({cuisine: cuisine,
+      checkedDiet: checkedDiets,
+      checkedIntolerance: checkedIntolerances,
+    }),
+})
+.then((result) => result.json())
+.then((data) => {
+  console.log(data);
+   const results = data.results;
+   const allRecipes = document.getElementById('recipeResults');
+   results.forEach((recipe) => {
+    const list = document.createElement('ul');
+    const items = document.createElement('li');
+    const title = document.createElement("h2");
+    title.innerHTML = recipe["title"];
+    const id = document.createElement("h3");
+    id.innerHTML= recipe["id"];
+    const img = document.createElement("img");
+    img.src = recipe["image"];
+    const space = document.createElement('br');
+    
+    items.appendChild(title);
+    items.appendChild(id);
+    items.appendChild(img);
+    list.appendChild(items);
+    allRecipes.appendChild(list); 
+    allRecipes.style.display = "block";
+  });
+});
 }
-
 
 async function lookupRecipe(){
   let paragraph = document.getElementById("container");

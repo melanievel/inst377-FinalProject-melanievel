@@ -2,13 +2,13 @@
   "name": "finalproject",
   "version": "1.0.0",
   "description": "INST377 Final Project - Recipes website",
-  "homepage": "https://github.com/melanievel/inst377-FinalProject-melanievel/tree/inst377-finalproject-melanievel#HomePage.html",
+  "homepage": "https://github.com/melanievel/inst377-FinalProject-melanievel#readme",
   "bugs": {
     "url": "https://github.com/melanievel/inst377-FinalProject-melanievel/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/melanievel/inst377-FinalProject-melanievel.git#inst377-finalproject-melanievel"
+    "url": "git+https://github.com/melanievel/inst377-FinalProject-melanievel.git"
   },
   "license": "ISC",
   "author": "Melanie Veloz",
