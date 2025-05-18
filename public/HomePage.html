@@ -5,7 +5,12 @@
     <script src="https://rawgit.com/ruyadorno/simple-slider/master/dist/simpleslider.min.js"></script>
     <script src="homePage.js" defer></script>
     <link rel="stylesheet" href="Styling.css" />
-    <style>#myslider { width:490px; height:490px; }</style>
+    <style>
+      #myslider {
+        width: 490px;
+        height: 490px;
+      }
+    </style>
   </head>
 
   <body>
@@ -23,16 +28,24 @@
     <!-- <img id="randomRecipePic" src="https://media.istockphoto.com/id/1316145932/photo/table-top-view-of-spicy-food.jpg?s=612x612&w=0&k=20&c=eaKRSIAoRGHMibSfahMyQS6iFADyVy1pnPdy1O5rZ98="> -->
 
     <div id="myslider">
-      <img src="https://media.istockphoto.com/id/1316145932/photo/table-top-view-of-spicy-food.jpg?s=612x612&w=0&k=20&c=eaKRSIAoRGHMibSfahMyQS6iFADyVy1pnPdy1O5rZ98="/>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIkXIyjOlwNZ8nBNDEhNLXr3lU451EYpkaww&s"/>
-      <img src="https://everydaydishes.com/wp-content/uploads/2025/03/high-protein-low-carb-dinner-recipes-for-weight-loss-253x253.jpg"/>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnbEmt9bkAqQuq-rPsawzkHzf7bEkRvbTBTg&s"/>
+      <img
+        src="https://media.istockphoto.com/id/1316145932/photo/table-top-view-of-spicy-food.jpg?s=612x612&w=0&k=20&c=eaKRSIAoRGHMibSfahMyQS6iFADyVy1pnPdy1O5rZ98="
+      />
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIkXIyjOlwNZ8nBNDEhNLXr3lU451EYpkaww&s"
+      />
+      <img
+        src="https://everydaydishes.com/wp-content/uploads/2025/03/high-protein-low-carb-dinner-recipes-for-weight-loss-253x253.jpg"
+      />
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnbEmt9bkAqQuq-rPsawzkHzf7bEkRvbTBTg&s"
+      />
     </div>
 
     <h1>Let's get started!</h1>
     <h2>Click the button to generate a random recipe!</h2>
     <button><a href="RandomRecipe.html">Random Recipe!</a></button>
-    <br>
+    <br />
 
     <div class="audioInstructions">
       <h1>You can navigate this webpage using audio!</h1>
@@ -60,25 +73,23 @@
 
     <!-- Footer -->
     <footer id="footer">
-      <p><a href="HomePage.html">Home</a> | <a href="ContactPage.html">Contact</a></p>
-
+      <p>
+        <a href="homePage.html">Home</a> |
+        <a href="contactPage.html">Contact</a>
+      </p>
     </footer>
-
   </body>
 
   <script>
     var imgSlider = simpleslider.getSlider({
-      container: document.getElementById('myslider'),
-      prop: 'left',
+      container: document.getElementById("myslider"),
+      prop: "left",
       init: -612,
       show: 0,
       end: 612,
-      unit: 'px'
+      unit: "px",
     });
   </script>
 </html>
 
 <!-- HIDE API KEYS BEFORE SUBMITTING!!!!!!!!!!!! -->
- 
-
-   

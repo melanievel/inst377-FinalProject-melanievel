@@ -1,0 +1,93 @@
+<html>
+  <head>
+    <title>About</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+    <link rel="stylesheet" href="Styling.css" />
+  </head>
+
+  <body>
+    <h1>About</h1>
+
+    <!-- Navigation Section -->
+    <nav id="main-nav">
+      <ul>
+        <li><a href="homePage.html">Home</a></li>
+        <li><a href="recipesPage.html">Recipes</a></li>
+        <li><a href="aboutPage.html">About</a></li>
+        <li><a href="helpPage.html">Help</a></li>
+      </ul>
+    </nav>
+
+    <h2>Welcome!</h2>
+    <h3>Issue</h3>
+    <p>
+      College students often struggle to maintain a good nutrition. Depending on
+      their circumstances they may have issues with time management, finances
+      and budgeting, cooking, etc., all which affect their ability to access
+      nutritious meals.
+    </p>
+    <h3>Purpose</h3>
+    <p>
+      The purpose of this app is to facilitate college students' access to
+      nutritious meals! The app allows users to find recipes that fit their
+      needs. Users have the choice to add customizations to narrow down their
+      recipe search. They can also see the ingredients needed, the time it takes
+      to make the recipe, how much it would cost to prepare it, etc. These
+      features allow the users to decide which recipes are a good fir for them
+      based on how much time they have, their budget, their cooking skills, and
+      more!
+    </p>
+    <h3>Resources</h3>
+    <p>
+      All recipe information was pulled from the Spoonacular API. Visit their
+      website to learn more about the API and its features.
+    </p>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <p>
+        <a href="homePage.html">Home</a> |
+        <a href="contactPage.html">Contact</a>
+      </p>
+    </footer>
+
+    <script>
+      function loadPage() {
+        const onButton = document.getElementById("audioOn");
+        onButton.addEventListener("click", function () {
+          AudioCommands();
+        });
+
+        const offButton = document.getElementById("audioOff");
+        offButton.addEventListener("click", function () {
+          turnOffLibrary();
+        });
+      }
+
+      function AudioCommands() {
+        if (annyang) {
+          const commands = {
+            "change the color to :color": function (color) {
+              document.body.style.background = color;
+            },
+            "navigate to :page": function (page) {
+              window.location.href = page + "Page.html";
+            },
+          };
+
+          annyang.addCommands(commands);
+
+          annyang.start();
+        }
+      }
+
+      function turnOffLibrary() {
+        if (annyang) {
+          annyang.abort();
+        }
+      }
+
+      window.onload = loadPage();
+    </script>
+  </body>
+</html>

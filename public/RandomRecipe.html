@@ -1,57 +1,62 @@
 <html>
-    <head>
-        <title>Recipes</title>
-        <link rel="stylesheet" href="Styling.css" />
-        <script src="randomRecipes.js" defer></script>
-    </head>
+  <head>
+    <title>Recipes</title>
+    <link rel="stylesheet" href="Styling.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+    <script src="randomRecipes.js" defer></script>
+  </head>
 
-    <body>
-        <!-- Navigation Section -->
+  <body>
+    <!-- Navigation Section -->
     <nav id="main-nav">
+      <ul>
+        <li><a href="homePage.html">Home</a></li>
+        <li><a href="recipesPage.html">Recipes</a></li>
+        <li><a href="aboutPage.html">About</a></li>
+        <li><a href="helpPage.html">Help</a></li>
+      </ul>
+    </nav>
+    <img id="recipeimg" />
+    <h1 id="recipeTitle"></h1>
+    <h5 id="description"></h5>
+    <h3>Instructions:</h3>
+    <p id="instructions"></p>
+    <br />
+
+    <h2>
+      <a href="recipesPage.html"><u>Check out other recipes!</u></a>
+    </h2>
+
+    <div class="audioInstructions">
+      <h1>You can navigate this webpage using audio!</h1>
+      <p>Ensure your mic is enabled to be able to use this feature</p>
+      <dl>
         <ul>
-          <li><a href="homePage.html">Home</a></li>
-          <li><a href="recipesPage.html">Recipes</a></li>
-          <li><a href="aboutPage.html">About</a></li>
-          <li><a href="helpPage.html">Help</a></li>
+          <li>
+            <dt>Navigate to a different page</dt>
+            <dd>- Say: <b>Navigate to &ltpage></b></dd>
+          </li>
+          <li>
+            <dt>Change the page color</dt>
+            <dd>- Say: <b>Change the color to &ltcolor></b></dd>
+          </li>
         </ul>
-      </nav>
-        <img id="recipeimg">
-        <h1 id="recipeTitle"></h1>
-        <h5 id="description"></h5>
-        <h3>Instructions:</h3>
-        <p id="instructions"></p>
-        <br>
+        <br />
+        <button id="audioOn" class="button-65" role="button">
+          Turn On Audio
+        </button>
+        <button id="audioOff" class="button-65" role="button">
+          Turn Off Audio
+        </button>
+      </dl>
+    </div>
 
-        <h2><a href="recipesPage.html">Check out other recipes!</a></h2>
-
-        <div class="audioInstructions">
-          <h1>You can navigate this webpage using audio!</h1>
-          <p>Ensure your mic is enabled to be able to use this feature</p>
-          <dl>
-            <ul>
-              <li>
-                <dt>Navigate to a different page</dt>
-                <dd>- Say: <b>Navigate to &ltpage></b></dd>
-              </li>
-              <li>
-                <dt>Change the page color</dt>
-                <dd>- Say: <b>Change the color to &ltcolor></b></dd>
-              </li>
-            </ul>
-            <br />
-            <button id="audioOn" class="button-65" role="button">
-              Turn On Audio
-            </button>
-            <button id="audioOff" class="button-65" role="button">
-              Turn Off Audio
-            </button>
-          </dl>
-        </div>
-
-        <!-- Footer -->
+    <!-- Footer -->
     <footer id="footer">
-      <p><a href="HomePage.html">Home</a> | <a href="ContactPage.html">Contact</a></p>
-
+      <p>
+        <a href="homePage.html">Home</a> |
+        <a href="contactPage.html">Contact</a>
+      </p>
     </footer>
-    </body>
+  </body>
 </html>

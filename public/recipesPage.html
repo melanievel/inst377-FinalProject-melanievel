@@ -2,6 +2,7 @@
   <head>
     <title>Recipes</title>
     <link rel="stylesheet" href="Styling.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
     <script src="recipesPage.js" defer></script>
   </head>
   <body>
@@ -147,7 +148,7 @@
       </form>
     </div>
 
-    <div id="recipeResults" style="display: none;"></div>
+    <div id="recipeResults" style="display: none"></div>
 
     <aside id="lookUp">
       <h1>Look up a recipe ID to see more details!</h1>
@@ -158,7 +159,7 @@
       </form>
     </aside>
 
-    <div id="container" style="display: none;"></div>
+    <div id="container" style="display: none"></div>
 
     <div class="audioInstructions">
       <h1>You can navigate this webpage using audio!</h1>
@@ -186,9 +187,10 @@
 
     <!-- Footer -->
     <footer id="footer">
-      <p><a href="HomePage.html">Home</a> | <a href="ContactPage.html">Contact</a></p>
-
+      <p>
+        <a href="homePage.html">Home</a> |
+        <a href="contactPage.html">Contact</a>
+      </p>
     </footer>
-    
   </body>
 </html>
