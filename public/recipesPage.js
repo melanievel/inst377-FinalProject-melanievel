@@ -70,7 +70,7 @@ async function lookupRecipe() {
       paragraph.appendChild(recipeTitle);
       const descriptions = document.createElement("h5");
       const url = document.createElement("h5");
-      url.innerHTML = "Link: " + resultJson["spoonacularSourceUrl"];
+      url.innerHTML = "Link to see more recipe information (ingredients, price and nutrition): " + resultJson["spoonacularSourceUrl"];
       paragraph.appendChild(url);
       const priceVar = resultJson["pricePerServing"].value;
       const total = priceVar / 100;
@@ -83,16 +83,6 @@ async function lookupRecipe() {
       const allInstructions = document.createElement("p");
       allInstructions.innerHTML = resultJson["instructions"];
       paragraph.appendChild(allInstructions);
-      fetch(
-        `https://api.spoonacular.com/recipes/${id}/priceBreakdownWidget.json?apiKey=376ec4f30d804001815a9949ee0d8cff`
-      )
-        .then((result) => result.json())
-        .then((resultJson) => {
-          const price = document.createElement("h3");
-          price.innerHTML =
-            "Total cost per serving $" + resultJson["totalCostPerServing"];
-          paragraph.appendChild(price);
-        });
       paragraph.style.display = "block";
     });
 }
