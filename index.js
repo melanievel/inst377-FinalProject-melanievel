@@ -22,7 +22,7 @@ app.get('/randomData', async (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.sendFile('public/HomePage.html', { root: __dirname });
+  res.sendFile('public/homePage.html', { root: __dirname });
 });
 
 app.get('/about', async (req, res) => {
